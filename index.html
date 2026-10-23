@@ -40,6 +40,7 @@ header p{max-width:700px;color:#E6EAF2}
 .st{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:10px;align-self:flex-start;color:#fff;background:#2F7D4F}
 .st.older{background:#8A7650}.st.withdrawn{background:#B3261E}
 .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.acts .share{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
 .acts a,.acts button{font:inherit;font-size:.82rem;padding:6px 10px;border:1px solid var(--navy-2);border-radius:5px;background:#fff;color:var(--navy-2);text-decoration:none;cursor:pointer}
 .how{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);padding:14px 18px;margin:0 0 30px;font-size:.95rem}
 .how code{font-family:'IBM Plex Mono',monospace;font-size:.85rem;background:var(--paper-2);padding:1px 5px}
@@ -54,14 +55,14 @@ header p{max-width:700px;color:#E6EAF2}
   <div class="kicker">Graphics library</div>
   <h1>Every Hive Graphic, in One Place</h1>
   <p>Share cards, charts and social pictures from The Weber County Hive and Utah Hive Politics, by topic, with the story each one goes with and where it ran.</p>
-  <p class="date">Started Oct. 22, 2026 · Updated Oct. 22, 2026</p>
+  <p class="date">Started Oct. 22, 2026 · Updated Oct. 23, 2026</p>
 </div></header>
 
 <div class="wrap">
   <div class="bar" id="bar"><input id="q" type="search" placeholder="Search by topic, race or name" aria-label="Search graphics"></div>
   <p class="count" id="count"></p>
   <div class="grid" id="grid"></div>
-  <div class="how"><b>Using a graphic?</b> Tap "Copy link" for its permanent address. Please link back to the story it goes with. Graphics marked <i>Older</i> or <i>Withdrawn</i> have been replaced and shouldn't be reused.</div>
+  <div class="how"><b>Using a graphic?</b> Tap <b>Share</b> to send it straight to Facebook, a text or an email with the link to its story, or <b>Download</b> to save the picture. "Copy link" gives its permanent address. Please link back to the story it goes with. Graphics marked <i>Older</i> or <i>Withdrawn</i> have been replaced and shouldn't be reused.</div>
 </div>
 
 <div class="hb-foot"><img src="hive-bee.png" alt=""><div>The Weber County Hive · Utah Hive Politics</div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:6px">Independent · Accountability · Journalism</div></div>
@@ -88,10 +89,26 @@ header p{max-width:700px;color:#E6EAF2}
     count.textContent=list.length+" of "+GRAPHICS.length+" graphics";
     grid.innerHTML=list.map(function(g){
       var st=g.status||"ready",lab={ready:"Ready to use",older:"Older",withdrawn:"Withdrawn"}[st];
-      return '<article class="card"><a class="img" href="'+esc(g.file)+'" target="_blank" rel="noopener"><img loading="lazy" src="'+esc(g.file)+'" alt="'+esc(g.title)+'"></a><div class="body"><span class="st '+st+'">'+lab+'</span><h2>'+esc(g.title)+'</h2><div class="tags">'+g.tags.map(function(x){return '<span>'+esc(x)+'</span>'}).join("")+'</div><div class="meta">Added '+nice(g.added)+(g.used?'<br>Used: '+esc(g.used):'')+(g.note?'<br>'+esc(g.note):'')+'</div><div class="acts">'+(g.page?'<a href="'+esc(g.page)+'" target="_blank" rel="noopener">The story</a>':'')+'<button type="button" data-copy="'+esc(BASE+g.file)+'">Copy link</button></div></div></article>';
+      return '<article class="card"><a class="img" href="'+esc(g.file)+'" target="_blank" rel="noopener"><img loading="lazy" src="'+esc(g.file)+'" alt="'+esc(g.title)+'"></a><div class="body"><span class="st '+st+'">'+lab+'</span><h2>'+esc(g.title)+'</h2><div class="tags">'+g.tags.map(function(x){return '<span>'+esc(x)+'</span>'}).join("")+'</div><div class="meta">Added '+nice(g.added)+(g.used?'<br>Used: '+esc(g.used):'')+(g.note?'<br>'+esc(g.note):'')+'</div><div class="acts">'+(g.page?'<a href="'+esc(g.page)+'" target="_blank" rel="noopener">The story</a>':'')+'<button type="button" class="share" data-share="'+esc(g.file)+'">Share</button><a href="'+esc(g.file)+'" download="'+esc(g.file)+'">Download</a><button type="button" data-copy="'+esc(BASE+g.file)+'">Copy link</button></div></div></article>';
     }).join("")||'<p>No graphics match. Try another word.</p>';
   }
-  grid.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(!b)return;var u=b.dataset.copy;
+  function byFile(f){for(var i=0;i<GRAPHICS.length;i++){if(GRAPHICS[i].file===f)return GRAPHICS[i]}}
+  function share(g){
+    var story=g.page||(BASE+g.file),text=g.title+" — from The Weber County Hive. The full record: "+story;
+    function linkOnly(){
+      if(navigator.share){navigator.share({title:g.title,text:g.title+" — from The Weber County Hive",url:story}).catch(function(){});return}
+      window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(story),"_blank","noopener,width=640,height=520");
+    }
+    if(navigator.canShare&&window.fetch&&window.File){
+      fetch(g.file).then(function(r){return r.blob()}).then(function(b){
+        var f=new File([b],g.file,{type:b.type||"image/jpeg"});
+        if(navigator.canShare({files:[f]})){return navigator.share({files:[f],title:g.title,text:text})}
+        linkOnly();
+      }).catch(function(err){if(!err||err.name!=="AbortError")linkOnly()});
+    }else{linkOnly()}
+  }
+  grid.addEventListener("click",function(e){var s=e.target.closest("[data-share]");if(s){var g=byFile(s.dataset.share);if(g)share(g);return}
+    var b=e.target.closest("[data-copy]");if(!b)return;var u=b.dataset.copy;
     if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){toast("Link copied")},function(){prompt("Copy this link:",u)})}else{prompt("Copy this link:",u)}});
   q.addEventListener("input",draw);draw();
 })();
