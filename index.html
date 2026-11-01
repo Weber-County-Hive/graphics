@@ -47,25 +47,55 @@ header p{max-width:700px;color:#E6EAF2}
 .hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:24px 18px;font-family:Georgia,serif}
 .hb-foot img{width:46px;height:46px;display:block;margin:0 auto 8px}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-size:.9rem}
+.hb-line-top{display:block;font-family:Georgia,serif;color:#e8d9b5;font-size:13px;margin-top:4px}
+.gr-slim{background:#0B1A30;color:var(--gold-lt);padding:9px 18px;font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px}
+.gr-slim a{color:#fff;text-decoration:none}
+#gr-tools{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.gr-tool{display:inline-block;font:600 15px 'Source Sans 3',Arial,sans-serif;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:6px;padding:9px 13px;text-decoration:none;cursor:pointer;line-height:1.2}
+.gr-tool:hover{border-color:var(--navy)}.gr-cnchip b{color:#9c7620;font-family:'IBM Plex Mono',monospace}
+.gr-shelfwrap{background:var(--navy);color:#E6EAF2;padding:26px 18px 30px;font-size:16px;line-height:1.5}
+.gr-shelfwrap .in{max-width:900px;margin:0 auto}
+#gr-shelf{border:2px dashed var(--gold);border-radius:10px;padding:16px 18px}
+.gr-cn-big{font:500 17px 'IBM Plex Mono',monospace;margin-bottom:12px}.gr-cn-big b{color:var(--gold)}
+.gr-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.gr-nav-btn{flex:1;min-width:220px;background:#0B1A30;border:1px solid var(--gold);border-radius:8px;padding:12px 14px;color:#fff;text-decoration:none;font-size:16px}.gr-nav-btn b{color:var(--gold);font-family:'IBM Plex Mono',monospace}.gr-off{opacity:.5}
+.gr-list summary{cursor:pointer;font-weight:700;padding:6px 0}.gr-list ol{list-style:none;margin:6px 0 0;padding:0}.gr-list li{padding:6px 0;border-bottom:1px solid #2E4670}.gr-list a{color:#fff;text-decoration:none}
+.gr-shelf-head{color:var(--gold);font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.1em}.gr-cn{font-family:'IBM Plex Mono',monospace;color:var(--gold);margin-right:6px}
+.gr-find{margin:14px 0 4px}.gr-find label{display:block;font-weight:700;margin-bottom:6px}.gr-find div{display:flex;gap:8px;flex-wrap:wrap}.gr-find input{flex:1;min-width:0;width:100%;padding:12px 14px;font-size:17px;border:2px solid var(--gold);border-radius:6px}.gr-find button{padding:12px 18px;font-size:16px;font-weight:700;background:var(--gold);color:var(--navy);border:0;border-radius:6px;cursor:pointer}
+.gr-search{font-size:15px;margin-top:12px}.gr-search a,.gr-search b{color:var(--gold-lt)}
+.hb-foot .hb-name{font-family:'Cinzel',Georgia,serif;color:#d4af37;font-size:14px;letter-spacing:.14em;text-transform:uppercase;display:block}
+.hb-foot .hb-sub{font-style:italic;color:#b8956a;font-size:12px;display:block}
+.hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block}
+.hb-line{max-width:720px;margin:14px auto 0;color:#e8d9b5;font-size:15.5px;line-height:1.5}
+.hb-tips{margin:16px 0 4px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hb-btn{display:inline-block;border:2px solid #d4af37;background:#d4af37;color:#0d0b0a;font:700 15px Georgia,serif;padding:10px 18px;border-radius:6px;text-decoration:none}
+.hb-btn2{background:transparent;color:#d4af37}
+.hb-small{font-size:12.5px;color:#8a7650;margin:6px 0 0}
+.gr-totop{display:none;position:fixed;right:16px;bottom:16px;z-index:50;background:var(--navy);color:#fff;border:2px solid var(--gold);border-radius:24px;padding:10px 16px;font:700 15px Arial,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+@media(max-width:600px){.hb-line-top{font-size:11.5px}}
+@media print{#gr-tools,.gr-totop{display:none}}
 </style>
 </head>
 <body>
-<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span></span></a></div>
+<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-line-top">The people's publication. We investigate what's best for the public as a whole, not any party or special interest.</span></span></a></div>
+<div class="gr-slim"><span>Graphics library · GR 000.01</span><span><a href="https://weber-county-hive.github.io/-weber-county-hive-index/">← Hive library (every repo)</a></span></div>
 <header><div class="wrap">
   <div class="kicker">Graphics library</div>
   <h1>Every Hive Graphic, in One Place</h1>
   <p>Share cards, charts and social pictures from The Weber County Hive and Utah Hive Politics, by topic, with the story each one goes with and where it ran.</p>
-  <p class="date">Started Oct. 22, 2026 · Updated Oct. 23, 2026</p>
+  <p class="date">Posted Oct. 22, 2026 · Updated Nov. 1, 2026 · Call number GR 000.01</p>
+  <div id="gr-tools"></div>
 </div></header>
 
 <div class="wrap">
   <div class="bar" id="bar"><input id="q" type="search" placeholder="Search by topic, race or name" aria-label="Search graphics"></div>
   <p class="count" id="count"></p>
   <div class="grid" id="grid"></div>
-  <div class="how"><b>Using a graphic?</b> Tap <b>Share</b> to send it straight to Facebook, a text or an email with the link to its story, or <b>Download</b> to save the picture. "Copy link" gives its permanent address. Please link back to the story it goes with. Graphics marked <i>Older</i> or <i>Withdrawn</i> have been replaced and shouldn't be reused.</div>
+  <div class="how" id="gr-how"><b>Using a graphic?</b> Tap <b>Share</b> to send it straight to Facebook, a text or an email with the link to its story, or <b>Download</b> to save the picture. "Copy link" gives its permanent address. Please link back to the story it goes with. Graphics marked <i>Older</i> or <i>Withdrawn</i> have been replaced and shouldn't be reused.</div>
 </div>
 
-<div class="hb-foot"><img src="hive-bee.png" alt=""><div>The Weber County Hive · Utah Hive Politics</div><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:6px">Independent · Accountability · Journalism</div></div>
+<div class="gr-shelfwrap"><div class="in"><div id="gr-shelf"></div></div></div>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span><p class="hb-line">The Weber County Hive and Utah Hive Politics: the people's publication. We investigate what's best for the public as a whole, not for any party or special interest group.</p><p class="hb-tips"><a class="hb-btn" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">Send a tip</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html">Tips we checked</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">See a mistake? Tell us</a></p><p class="hb-small">We never name tipsters. When we correct a page, the fix and its date are shown on the page.</p><p class="hb-small"><a href="https://webercountyhive.substack.com/" style="color:#d4af37">webercountyhive.substack.com</a></p></div>
 <div class="toast" id="toast" hidden></div>
 
 <script src="graphics-data.js"></script>
@@ -110,9 +140,11 @@ header p{max-width:700px;color:#E6EAF2}
   grid.addEventListener("click",function(e){var s=e.target.closest("[data-share]");if(s){var g=byFile(s.dataset.share);if(g)share(g);return}
     var b=e.target.closest("[data-copy]");if(!b)return;var u=b.dataset.copy;
     if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){toast("Link copied")},function(){prompt("Copy this link:",u)})}else{prompt("Copy this link:",u)}});
+  var q0=new URLSearchParams(location.search).get("q");if(q0&&!/^\s*GR\s*\d/i.test(q0)){q.value=q0;}
   q.addEventListener("input",draw);draw();
 })();
 </script>
+<script src="gr-shelf.js?v=1"></script>
 <script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
