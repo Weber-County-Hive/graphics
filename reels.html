@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reels Library | The Weber County Hive</title>
+<meta name="description" content="Every short video The Weber County Hive and Utah Hive Politics have published, by topic, with the story each one goes with.">
+<link rel="icon" type="image/png" href="hive-bee.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&family=Cinzel:wght@600&display=swap');
+:root{--navy:#13233F;--navy-2:#1E3560;--gold:#D4A62A;--gold-lt:#F3E3B3;--paper:#FFFFFF;--paper-2:#F6F3EA;--ink:#13233F;--soft:#4A5670;--line:#DDD6C4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper-2);color:var(--ink);font-family:'Source Sans 3',sans-serif;line-height:1.55;font-size:17px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+a{color:var(--navy-2)}
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 18px}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none}
+.hb-bar img{width:46px;height:46px;border-radius:4px}
+.hb-name{font-family:'Cinzel',Georgia,serif;color:#d4af37;font-size:15px;letter-spacing:.14em;text-transform:uppercase;display:block}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12px;display:block}
+header{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;padding:30px 0 26px;border-bottom:5px solid var(--gold)}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,40px);margin:6px 0 8px}
+header p{max-width:700px;color:#E6EAF2}
+.date{font-size:.85rem;margin-top:10px;opacity:.9}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0 6px}
+.bar input{flex:1 1 240px;font:inherit;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.bar button{font:inherit;font-size:.9rem;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;color:var(--ink)}
+.bar button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.count{font-size:.9rem;color:var(--soft);margin:4px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-bottom:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.card a.img{display:block;background:var(--paper-2);aspect-ratio:4/5}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h2{font-size:1rem;line-height:1.3}
+.tags{display:flex;flex-wrap:wrap;gap:4px}
+.tags span{font-size:.72rem;background:var(--gold-lt);color:var(--navy);padding:2px 8px;border-radius:10px}
+.meta{font-size:.82rem;color:var(--soft)}
+.st{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:10px;align-self:flex-start;color:#fff;background:#2F7D4F}
+.st.older{background:#8A7650}.st.withdrawn{background:#B3261E}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.acts .share{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
+.acts a,.acts button{font:inherit;font-size:.82rem;padding:6px 10px;border:1px solid var(--navy-2);border-radius:5px;background:#fff;color:var(--navy-2);text-decoration:none;cursor:pointer}
+.how{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);padding:14px 18px;margin:0 0 30px;font-size:.95rem}
+.how code{font-family:'IBM Plex Mono',monospace;font-size:.85rem;background:var(--paper-2);padding:1px 5px}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:24px 18px;font-family:Georgia,serif}
+.hb-foot img{width:46px;height:46px;display:block;margin:0 auto 8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-size:.9rem}
+.hb-line-top{display:block;font-family:Georgia,serif;color:#e8d9b5;font-size:13px;margin-top:4px}
+.gr-slim{background:#0B1A30;color:var(--gold-lt);padding:9px 18px;font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px}
+.gr-slim a{color:#fff;text-decoration:none}
+#gr-tools{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.gr-tool{display:inline-block;font:600 15px 'Source Sans 3',Arial,sans-serif;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:6px;padding:9px 13px;text-decoration:none;cursor:pointer;line-height:1.2}
+.gr-tool:hover{border-color:var(--navy)}.gr-cnchip b{color:#9c7620;font-family:'IBM Plex Mono',monospace}
+.gr-shelfwrap{background:var(--navy);color:#E6EAF2;padding:26px 18px 30px;font-size:16px;line-height:1.5}
+.gr-shelfwrap .in{max-width:900px;margin:0 auto}
+#gr-shelf{border:2px dashed var(--gold);border-radius:10px;padding:16px 18px}
+.gr-cn-big{font:500 17px 'IBM Plex Mono',monospace;margin-bottom:12px}.gr-cn-big b{color:var(--gold)}
+.gr-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.gr-nav-btn{flex:1;min-width:220px;background:#0B1A30;border:1px solid var(--gold);border-radius:8px;padding:12px 14px;color:#fff;text-decoration:none;font-size:16px}.gr-nav-btn b{color:var(--gold);font-family:'IBM Plex Mono',monospace}.gr-off{opacity:.5}
+.gr-list summary{cursor:pointer;font-weight:700;padding:6px 0}.gr-list ol{list-style:none;margin:6px 0 0;padding:0}.gr-list li{padding:6px 0;border-bottom:1px solid #2E4670}.gr-list a{color:#fff;text-decoration:none}
+.gr-shelf-head{color:var(--gold);font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.1em}.gr-cn{font-family:'IBM Plex Mono',monospace;color:var(--gold);margin-right:6px}
+.gr-find{margin:14px 0 4px}.gr-find label{display:block;font-weight:700;margin-bottom:6px}.gr-find div{display:flex;gap:8px;flex-wrap:wrap}.gr-find input{flex:1;min-width:0;width:100%;padding:12px 14px;font-size:17px;border:2px solid var(--gold);border-radius:6px}.gr-find button{padding:12px 18px;font-size:16px;font-weight:700;background:var(--gold);color:var(--navy);border:0;border-radius:6px;cursor:pointer}
+.gr-search{font-size:15px;margin-top:12px}.gr-search a,.gr-search b{color:var(--gold-lt)}
+.hb-foot .hb-name{font-family:'Cinzel',Georgia,serif;color:#d4af37;font-size:14px;letter-spacing:.14em;text-transform:uppercase;display:block}
+.hb-foot .hb-sub{font-style:italic;color:#b8956a;font-size:12px;display:block}
+.hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block}
+.hb-line{max-width:720px;margin:14px auto 0;color:#e8d9b5;font-size:15.5px;line-height:1.5}
+.hb-tips{margin:16px 0 4px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hb-btn{display:inline-block;border:2px solid #d4af37;background:#d4af37;color:#0d0b0a;font:700 15px Georgia,serif;padding:10px 18px;border-radius:6px;text-decoration:none}
+.hb-btn2{background:transparent;color:#d4af37}
+.hb-small{font-size:12.5px;color:#8a7650;margin:6px 0 0}
+.gr-totop{display:none;position:fixed;right:16px;bottom:16px;z-index:50;background:var(--navy);color:#fff;border:2px solid var(--gold);border-radius:24px;padding:10px 16px;font:700 15px Arial,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+@media(max-width:600px){.hb-line-top{font-size:11.5px}}
+@media print{#gr-tools,.gr-totop{display:none}}
+</style>
+
+<style>
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-bottom:40px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.rcard video{width:100%;aspect-ratio:9/16;background:#0B1A30;display:block}
+.rcard .body{padding:12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.rcard h2{font-size:1.05rem;line-height:1.3}
+.topnav{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.topnav a{font:600 15px 'Source Sans 3',Arial,sans-serif;color:var(--navy);background:#fff;border-radius:6px;padding:9px 13px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-line-top">The people's publication. We investigate what's best for the public as a whole, not any party or special interest.</span></span></a></div>
+<div class="gr-slim"><span>Reels library · GR 000.02</span><span><a href="https://weber-county-hive.github.io/graphics/">← Graphics library</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive library (every repo)</a></span></div>
+<header><div class="wrap">
+  <div class="kicker">Reels library</div>
+  <h1>Every Hive Reel, in One Place</h1>
+  <p>Short videos from The Weber County Hive and Utah Hive Politics, newest first, with the story each one goes with and where it ran. Every reel comes from public records. Tap play to watch with sound.</p>
+  <p class="date">Posted Nov. 3, 2026 · Updated Nov. 3, 2026 · Call number GR 000.02</p>
+  <div class="topnav"><a href="https://weber-county-hive.github.io/graphics/">🖼️ Graphics</a><a href="https://www.youtube.com/@WeberCountyHive" target="_blank" rel="noopener">▶ Hive on YouTube</a></div>
+</div></header>
+<div class="wrap">
+  <div class="bar" id="bar"><input id="q" type="search" placeholder="Search reels by topic, race or name" aria-label="Search reels"></div>
+  <p class="count" id="count"></p>
+  <div class="rgrid" id="grid"></div>
+  <div class="how"><b>Sharing a reel?</b> Tap <b>Copy link</b> for its permanent address, or <b>Download</b> to save it. Please link back to the story it goes with.</div>
+</div>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span><p class="hb-line">The Weber County Hive and Utah Hive Politics: the people's publication. We investigate what's best for the public as a whole, not for any party or special interest group.</p><p class="hb-tips"><a class="hb-btn" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">Send a tip</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html">Tips we checked</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">See a mistake? Tell us</a></p><p class="hb-small">We never name tipsters. When we correct a page, the fix and its date are shown on the page.</p><p class="hb-small"><a href="https://webercountyhive.substack.com/" style="color:#d4af37">webercountyhive.substack.com</a></p></div>
+<a class="gr-totop" id="totop" href="#">↑ Top</a>
+<script src="reels-data.js"></script>
+<script>
+(function(){
+  var grid=document.getElementById('grid'),q=document.getElementById('q'),count=document.getElementById('count'),bar=document.getElementById('bar');
+  var topics=[...new Set(REELS.map(function(r){return r.topic}))],active='all';
+  [['all','All']].concat(topics.map(function(t){return [t,t]})).forEach(function(b){var x=document.createElement('button');x.textContent=b[1];x.setAttribute('aria-pressed',b[0]==='all');x.onclick=function(){active=b[0];[].forEach.call(bar.querySelectorAll('button'),function(y){y.setAttribute('aria-pressed',y===x)});draw()};bar.appendChild(x)});
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function fmt(d){var m=['Jan.','Feb.','March','April','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];var p=d.split('-');return m[+p[1]-1]+' '+(+p[2])+', '+p[0]}
+  function draw(){
+    var t=q.value.toLowerCase().trim();
+    var list=REELS.filter(function(r){return (active==='all'||r.topic===active)&&(!t||[r.title,r.tags.join(' '),r.topic,r.note,r.ran].join(' ').toLowerCase().indexOf(t)>-1)}).sort(function(a,b){return b.added.localeCompare(a.added)});
+    count.textContent=list.length+(list.length===1?' reel':' reels');
+    grid.innerHTML=list.map(function(r){return '<div class="rcard"><video controls preload="metadata" playsinline src="'+esc(r.file)+'#t=0.5"></video><div class="body"><h2>'+esc(r.title)+'</h2><div class="tags">'+r.tags.map(function(g){return '<span>'+esc(g)+'</span>'}).join('')+'</div><div class="meta">'+fmt(r.added)+(r.length?' · '+esc(r.length):'')+'<br>Ran: '+esc(r.ran)+'</div><div class="meta">'+esc(r.note)+'</div><div class="acts"><a class="share" href="'+esc(r.story)+'" target="_blank" rel="noopener">Read the story</a><a href="'+esc(r.file)+'" download>Download</a><button data-u="'+esc(r.file)+'">Copy link</button></div></div></div>'}).join('');
+    [].forEach.call(grid.querySelectorAll('button[data-u]'),function(b){b.onclick=function(){try{navigator.clipboard.writeText(b.dataset.u);b.textContent='Copied'}catch(e){prompt('Copy this link',b.dataset.u)}}});
+  }
+  q.oninput=draw;draw();
+  var tt=document.getElementById('totop');window.addEventListener('scroll',function(){tt.style.display=window.scrollY>600?'block':'none'});
+})();
+</script>
+<script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
