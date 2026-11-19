@@ -1,6 +1,25 @@
 // Reels shown on reels.html, newest first by 'added'. Rebuilt Nov. 14, 2026.
 var REELS = [
  {
+  "file": "2026-11-sb258-repeal-reel.mp4",
+  "title": "A repeal is coming for Utah's developer-created towns: the record and 6 things to watch",
+  "tags": [
+   "S.B. 258",
+   "Preliminary municipalities",
+   "Utah Legislature",
+   "James A. Dunnigan",
+   "Calvin Musselman",
+   "Echo Canyon",
+   "Repeal"
+  ],
+  "topic": "transparency",
+  "added": "2026-11-19",
+  "length": "0:36",
+  "ran": "Shauna Miller personal Facebook, Nov. 19, 2026; Hive YouTube Short",
+  "note": "6 cards, Indie Folk Acoustic music, no voice. Records: le.utah.gov S.B. 258 (2024) bill history and roll calls; H.B. 540 (2025), H.B. 510 and H.B. 592 (2026); KPCW, Nov. 18, 2026; Moab Times, Oct. 30, 2026",
+  "story": "https://webercountyhive.substack.com"
+ },
+ {
   "file": "2026-11-hope-of-utah-reel.mp4",
   "title": "How it pays to know people in politics: Hope of Utah",
   "tags": [
