@@ -1,5 +1,57 @@
-// Reels shown on reels.html, newest first by 'added'. Rebuilt Nov. 14, 2026.
+// Reels shown on reels.html, newest first by 'added'. Rebuilt Nov. 14, 2026; updated Nov. 23, 2026.
 var REELS = [
+ {
+  "file": "2026-11-public-notice-watch-reel.mp4",
+  "title": "Public Notice Watch: 13 notices since October, and where each one stands",
+  "tags": [
+   "Public notices",
+   "Box Elder County",
+   "a55167",
+   "Weber Fire District",
+   "West Weber rezones",
+   "Hansel Valley"
+  ],
+  "topic": "transparency",
+  "added": "2026-11-23",
+  "length": "0:45",
+  "ran": "Mon., Nov. 23, 6:30 PM (scheduled)",
+  "note": "15 cards, Guess the Spot music, no voice. Records: the Hive's 13 notice flyers (Utah Public Notice website, Utah Division of Water Rights, Utah DEQ); Weber County Commission agenda for Nov. 24, 2026 (PMN 1125419)",
+  "story": "https://weber-county-hive.github.io/-weber-county-hive-index/"
+ },
+ {
+  "file": "2026-11-sunday-buzz-issue-9-reel.mp4",
+  "title": "The Sunday Buzz, Issue 9: nine stories from the public record",
+  "tags": [
+   "Sunday Buzz",
+   "Mike Schultz",
+   "S.B. 258",
+   "Derek Brown",
+   "Wildcat Square",
+   "Pineview"
+  ],
+  "topic": "transparency",
+  "added": "2026-11-23",
+  "length": "0:45",
+  "ran": "Wed., Nov. 25, 6:30 PM (scheduled)",
+  "note": "11 cards, snow-mode music, no voice. Source: The Sunday Buzz, Issue 09 (SB 100.09), Nov. 22, 2026",
+  "story": "https://weber-county-hive.github.io/sunday_buzz/2026-11-22.html"
+ },
+ {
+  "file": "2026-11-thankful-where-the-hive-started-reel.mp4",
+  "title": "Thankful: where the Hive started, and 8 free libraries",
+  "tags": [
+   "Thanksgiving",
+   "Eden",
+   "Repo Spotlight",
+   "Public records"
+  ],
+  "topic": "transparency",
+  "added": "2026-11-23",
+  "length": "0:41",
+  "ran": "Fri., Nov. 27, 11 AM (scheduled)",
+  "note": "11 cards, Inspiring Travel Acoustic music, no voice. Founder graphic (old Oct. dates cropped off); source: Weber County Commission minutes, July 23, 2019 (ZMA 2019-04); 8 Repo Spotlight cards",
+  "story": "https://weber-county-hive.github.io/-weber-county-hive-index/"
+ },
  {
   "file": "2026-11-sb258-repeal-reel.mp4",
   "title": "A repeal is coming for Utah's developer-created towns: the record and 6 things to watch",
